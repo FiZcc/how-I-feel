@@ -2,48 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloom → Decay</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-
+  <!-- Music Player -->
   <div class="music-box">
-    <p>Now Playing</p>
-    <audio controls autoplay loop>
+    <p>🎵 Now Playing</p>
+    <audio id="player" controls>
       <source src="music.mp3" type="audio/mpeg">
+      Your browser does not support audio playback.
     </audio>
   </div>
 
-
+  <!-- Main Content -->
   <div class="world">
-
     <section class="scene bloom">
-      <h1>soft bloom</h1>
-      <p>a place of flowers, light, and quiet air</p>
+      <div class="content">
+        <h1>soft bloom</h1>
+        <p>a place of flowers, light, and quiet air</p>
+      </div>
     </section>
 
     <section class="scene bloom2">
-      <h1>gentle growth</h1>
-      <p>everything feels safe… too safe</p>
+      <div class="content">
+        <h1>gentle growth</h1>
+        <p>everything feels safe… too safe</p>
+      </div>
     </section>
 
     <section class="scene transition">
-      <h1>something shifts</h1>
-      <p>the colors hesitate</p>
+      <div class="content">
+        <h1>something shifts</h1>
+        <p>the colors hesitate</p>
+      </div>
     </section>
 
     <section class="scene decay">
-      <h1>corruption</h1>
-      <p>red spreads where it shouldn't</p>
+      <div class="content">
+        <h1>corruption</h1>
+        <p>red spreads where it shouldn't</p>
+      </div>
     </section>
 
     <section class="scene decay2">
-      <h1>ruin</h1>
-      <p>nothing stays clean anymore</p>
+      <div class="content">
+        <h1>ruin</h1>
+        <p>nothing stays clean anymore</p>
+      </div>
     </section>
-
   </div>
 
   <script src="script.js"></script>
