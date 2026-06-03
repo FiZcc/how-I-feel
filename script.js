@@ -13,14 +13,3 @@ window.addEventListener("scroll", () => {
     scene.style.opacity = opacity;
   });
 });
-
-// Initialize audio player
-window.addEventListener("DOMContentLoaded", () => {
-  const audio = document.querySelector(".music-box audio");
-  if (audio) {
-    // Attempt to autoplay (browsers may block this)
-    audio.play().catch(() => {
-      console.log("Autoplay blocked - user interaction required");
-    });
-  }
-});
