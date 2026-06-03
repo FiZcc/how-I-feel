@@ -1,56 +1,62 @@
-// Initialize when page loads
+// Scroll interaction and environment effects
 document.addEventListener('DOMContentLoaded', function() {
-  const scenes = document.querySelectorAll('.scene');
-  const audioPlayer = document.getElementById('player');
+  const environments = document.querySelectorAll('.environment');
+  const player = document.getElementById('player');
   
-  // Smooth scroll effect - fade scenes in/out
   window.addEventListener('scroll', function() {
     const scrollPos = window.scrollY;
     const windowHeight = window.innerHeight;
-    
-    scenes.forEach((scene, index) => {
-      const sceneTop = scene.offsetTop;
-      const sceneCenter = sceneTop + windowHeight / 2;
-      const distanceFromCenter = Math.abs(scrollPos + windowHeight / 2 - sceneCenter);
-      
-      // Smooth opacity based on distance from viewport center
-      const opacity = Math.max(0.5, 1 - distanceFromCenter / (windowHeight * 1.5));
-      scene.style.opacity = opacity;
-      
-      // Optional: Slightly scale content as it comes into view
-      const scale = 0.95 + (opacity - 0.5) * 0.1;
-      const contentDiv = scene.querySelector('.content');
-      if (contentDiv) {
-        contentDiv.style.transform = `scale(${scale})`;
-      }
-    });
-    
-    // Audio volume increases as you scroll toward decay sections
     const totalScroll = document.documentElement.scrollHeight - windowHeight;
     const scrollProgress = scrollPos / totalScroll;
     
-    // Volume increases in last 2 sections (decay)
-    if (scrollProgress > 0.6) {
-      const decayProgress = (scrollProgress - 0.6) / 0.4;
-      audioPlayer.volume = Math.min(1, 0.3 + decayProgress * 0.7);
+    // Update each environment's visibility
+    environments.forEach((env, index) => {
+      const envTop = env.offsetTop;
+      const envHeight = env.offsetHeight;
+      const envCenter = envTop + envHeight / 2;
+      const distanceFromCenter = Math.abs(scrollPos + windowHeight / 2 - envCenter);
+      
+      // Fade effect
+      const opacity = Math.max(0.3, 1 - distanceFromCenter / (windowHeight * 1.2));
+      env.style.opacity = opacity;
+      
+      // Parallax effect on scene elements
+      const sceneContainer = env.querySelector('.scene-container');
+      if (sceneContainer) {
+        const offset = scrollPos * 0.3;
+        sceneContainer.style.transform = `translateY(${offset}px)`;
+      }
+    });
+    
+    // Audio volume increases with corruption progression
+    if (scrollProgress < 0.3) {
+      player.volume = 0.1;
+    } else if (scrollProgress < 0.6) {
+      player.volume = 0.3 + (scrollProgress - 0.3) * 0.33;
     } else {
-      audioPlayer.volume = 0.3;
+      player.volume = Math.min(1, 0.5 + (scrollProgress - 0.6) * 1.25);
     }
   });
   
-  // Trigger initial scroll event
+  // Trigger scroll event on load
   window.dispatchEvent(new Event('scroll'));
 });
 
-// Keyboard shortcut: spacebar to play/pause
-document.addEventListener('keydown', function(event) {
-  if (event.code === 'Space' && event.target === document.body) {
-    event.preventDefault();
-    const audioPlayer = document.getElementById('player');
-    if (audioPlayer.paused) {
-      audioPlayer.play();
-    } else {
-      audioPlayer.pause();
-    }
+// Spacebar to play/pause
+document.addEventListener('keydown', function(e) {
+  if (e.code === 'Space' && e.target === document.body) {
+    e.preventDefault();
+    const player = document.getElementById('player');
+    player.paused ? player.play() : player.pause();
   }
 });
+
+// Click anywhere to play music
+document.addEventListener('click', function() {
+  const player = document.getElementById('player');
+  if (player.paused) {
+    player.play().catch(() => {
+      console.log('Autoplay prevented by browser');
+    });
+  }
+}, { once: true });

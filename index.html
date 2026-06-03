@@ -7,50 +7,106 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- Music Player -->
   <div class="music-box">
     <p>🎵 Now Playing</p>
     <audio id="player" controls>
       <source src="music.mp3" type="audio/mpeg">
-      Your browser does not support audio playback.
     </audio>
   </div>
 
-  <!-- Main Content -->
-  <div class="world">
-    <section class="scene bloom">
-      <div class="content">
-        <h1>soft bloom</h1>
-        <p>a place of flowers, light, and quiet air</p>
+  <!-- Main Container -->
+  <div class="container">
+    <!-- BLOOM ENVIRONMENT -->
+    <section class="environment bloom-env">
+      <h1>soft bloom</h1>
+      <p>a place of flowers, light, and quiet air</p>
+      
+      <div class="scene-container">
+        <div class="flower flower1">🌼</div>
+        <div class="flower flower2">🌸</div>
+        <div class="flower flower3">🌺</div>
+        <div class="butterfly">🦋</div>
+        <div class="cloud cloud1">☁️</div>
+        <div class="cloud cloud2">☁️</div>
+        <div class="sun">☀️</div>
+        <div class="grass"></div>
       </div>
     </section>
 
-    <section class="scene bloom2">
-      <div class="content">
-        <h1>gentle growth</h1>
-        <p>everything feels safe… too safe</p>
+    <!-- GROWTH ENVIRONMENT -->
+    <section class="environment growth-env">
+      <h1>gentle growth</h1>
+      <p>everything feels safe… too safe</p>
+      
+      <div class="scene-container">
+        <div class="flower flower1">🌷</div>
+        <div class="flower flower2">🌹</div>
+        <div class="flower flower3">🌻</div>
+        <div class="bee">🐝</div>
+        <div class="sparkle sparkle1">✨</div>
+        <div class="sparkle sparkle2">✨</div>
+        <div class="sparkle sparkle3">✨</div>
+        <div class="cloud cloud1">☁️</div>
+        <div class="sun">☀️</div>
+        <div class="grass"></div>
       </div>
     </section>
 
-    <section class="scene transition">
-      <div class="content">
-        <h1>something shifts</h1>
-        <p>the colors hesitate</p>
+    <!-- TRANSITION ENVIRONMENT -->
+    <section class="environment transition-env">
+      <h1>something shifts</h1>
+      <p>the colors hesitate</p>
+      
+      <div class="scene-container">
+        <div class="flower flower1 wilting">🌼</div>
+        <div class="flower flower2 wilting">🌸</div>
+        <div class="warning warning1">⚠️</div>
+        <div class="warning warning2">⚠️</div>
+        <div class="crack crack1"></div>
+        <div class="cloud cloud1 darkening">☁️</div>
+        <div class="sun dimming">☀️</div>
+        <div class="grass"></div>
       </div>
     </section>
 
-    <section class="scene decay">
-      <div class="content">
-        <h1>corruption</h1>
-        <p>red spreads where it shouldn't</p>
+    <!-- DECAY ENVIRONMENT -->
+    <section class="environment decay-env">
+      <h1>corruption</h1>
+      <p>red spreads where it shouldn't</p>
+      
+      <div class="scene-container">
+        <div class="flower flower1 dead">💀</div>
+        <div class="flower flower2 dead">💀</div>
+        <div class="splatter splatter1">💧</div>
+        <div class="splatter splatter2">💧</div>
+        <div class="splatter splatter3">💧</div>
+        <div class="crack crack1 wide"></div>
+        <div class="crack crack2 wide"></div>
+        <div class="cloud cloud1 dark">☁️</div>
+        <div class="stain stain1"></div>
+        <div class="stain stain2"></div>
+        <div class="grass dead"></div>
       </div>
     </section>
 
-    <section class="scene decay2">
-      <div class="content">
-        <h1>ruin</h1>
-        <p>nothing stays clean anymore</p>
+    <!-- RUIN ENVIRONMENT -->
+    <section class="environment ruin-env">
+      <h1>ruin</h1>
+      <p>nothing stays clean anymore</p>
+      
+      <div class="scene-container">
+        <div class="debris debris1">✕</div>
+        <div class="debris debris2">✕</div>
+        <div class="debris debris3">✕</div>
+        <div class="debris debris4">✕</div>
+        <div class="stain stain1 large"></div>
+        <div class="stain stain2 large"></div>
+        <div class="stain stain3 large"></div>
+        <div class="crack crack1 wide broken"></div>
+        <div class="crack crack2 wide broken"></div>
+        <div class="cloud cloud1 pitch">☁️</div>
+        <div class="grass dead pitch"></div>
       </div>
     </section>
   </div>
