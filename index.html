@@ -7,108 +7,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Music Player -->
-  <div class="music-box">
-    <p>🎵 Now Playing</p>
-    <audio id="player" controls>
-      <source src="music.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
-  <!-- Main Container -->
-  <div class="container">
-    <!-- BLOOM ENVIRONMENT -->
-    <section class="environment bloom-env">
-      <h1>soft bloom</h1>
-      <p>a place of flowers, light, and quiet air</p>
-      
-      <div class="scene-container">
-        <div class="flower flower1">🌼</div>
-        <div class="flower flower2">🌸</div>
-        <div class="flower flower3">🌺</div>
-        <div class="butterfly">🦋</div>
-        <div class="cloud cloud1">☁️</div>
-        <div class="cloud cloud2">☁️</div>
-        <div class="sun">☀️</div>
-        <div class="grass"></div>
+  <canvas id="canvas"></canvas>
+  
+  <div class="ui-container">
+    <div class="music-box">
+      <p>🎵 Now Playing</p>
+      <audio id="player" controls>
+        <source src="music.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    
+    <div class="status-box">
+      <h2 id="title">soft bloom</h2>
+      <p id="message">a place of flowers, light, and quiet air</p>
+      <div class="corruption-bar">
+        <div id="corruption-fill"></div>
       </div>
-    </section>
-
-    <!-- GROWTH ENVIRONMENT -->
-    <section class="environment growth-env">
-      <h1>gentle growth</h1>
-      <p>everything feels safe… too safe</p>
-      
-      <div class="scene-container">
-        <div class="flower flower1">🌷</div>
-        <div class="flower flower2">🌹</div>
-        <div class="flower flower3">🌻</div>
-        <div class="bee">🐝</div>
-        <div class="sparkle sparkle1">✨</div>
-        <div class="sparkle sparkle2">✨</div>
-        <div class="sparkle sparkle3">✨</div>
-        <div class="cloud cloud1">☁️</div>
-        <div class="sun">☀️</div>
-        <div class="grass"></div>
-      </div>
-    </section>
-
-    <!-- TRANSITION ENVIRONMENT -->
-    <section class="environment transition-env">
-      <h1>something shifts</h1>
-      <p>the colors hesitate</p>
-      
-      <div class="scene-container">
-        <div class="flower flower1 wilting">🌼</div>
-        <div class="flower flower2 wilting">🌸</div>
-        <div class="warning warning1">⚠️</div>
-        <div class="warning warning2">⚠️</div>
-        <div class="crack crack1"></div>
-        <div class="cloud cloud1 darkening">☁️</div>
-        <div class="sun dimming">☀️</div>
-        <div class="grass"></div>
-      </div>
-    </section>
-
-    <!-- DECAY ENVIRONMENT -->
-    <section class="environment decay-env">
-      <h1>corruption</h1>
-      <p>red spreads where it shouldn't</p>
-      
-      <div class="scene-container">
-        <div class="flower flower1 dead">💀</div>
-        <div class="flower flower2 dead">💀</div>
-        <div class="splatter splatter1">💧</div>
-        <div class="splatter splatter2">💧</div>
-        <div class="splatter splatter3">💧</div>
-        <div class="crack crack1 wide"></div>
-        <div class="crack crack2 wide"></div>
-        <div class="cloud cloud1 dark">☁️</div>
-        <div class="stain stain1"></div>
-        <div class="stain stain2"></div>
-        <div class="grass dead"></div>
-      </div>
-    </section>
-
-    <!-- RUIN ENVIRONMENT -->
-    <section class="environment ruin-env">
-      <h1>ruin</h1>
-      <p>nothing stays clean anymore</p>
-      
-      <div class="scene-container">
-        <div class="debris debris1">✕</div>
-        <div class="debris debris2">✕</div>
-        <div class="debris debris3">✕</div>
-        <div class="debris debris4">✕</div>
-        <div class="stain stain1 large"></div>
-        <div class="stain stain2 large"></div>
-        <div class="stain stain3 large"></div>
-        <div class="crack crack1 wide broken"></div>
-        <div class="crack crack2 wide broken"></div>
-        <div class="cloud cloud1 pitch">☁️</div>
-        <div class="grass dead pitch"></div>
-      </div>
-    </section>
+      <p class="corruption-text">Corruption: <span id="corruption-percent">0</span>%</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
