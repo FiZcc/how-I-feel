@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Bloom → Decay</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="garden">
-  <div id="particles"></div>
-  <div id="butterflies"></div>
-  <div id="lyrics"></div>
-</div>
+  <!-- MUSIC -->
+  <div class="music-box">
+    <p>Now Playing</p>
+    <audio controls autoplay loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 
-<audio id="song" src="audio.mp3"></audio>
+  <!-- SCROLL WORLD -->
+  <div class="world">
 
-<script src="script.js"></script>
+    <section class="scene bloom">
+      <h1>soft bloom</h1>
+      <p>a place of flowers, light, and quiet air</p>
+    </section>
+
+    <section class="scene bloom2">
+      <h1>gentle growth</h1>
+      <p>everything feels safe… too safe</p>
+    </section>
+
+    <section class="scene transition">
+      <h1>something shifts</h1>
+      <p>the colors hesitate</p>
+    </section>
+
+    <section class="scene decay">
+      <h1>corruption</h1>
+      <p>red spreads where it shouldn't</p>
+    </section>
+
+    <section class="scene decay2">
+      <h1>ruin</h1>
+      <p>nothing stays clean anymore</p>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
