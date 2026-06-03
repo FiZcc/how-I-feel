@@ -1,20 +1,15 @@
-const audio = document.getElementById("song");
-const lyricsBox = document.getElementById("lyrics");
+// Simple scroll-based interactivity
+window.addEventListener("scroll", () => {
+  const scenes = document.querySelectorAll(".scene");
+  const scrollPos = window.scrollY;
+  const windowHeight = window.innerHeight;
 
-let lyrics = [];
-fetch("lyrics.json")
-  .then(r => r.json())
-  .then(data => lyrics = data);
+  scenes.forEach((scene) => {
+    const scenePos = scene.offsetTop;
+    const distance = scenePos - scrollPos - windowHeight / 2;
 
-audio.addEventListener("timeupdate", () => {
-  let current = audio.currentTime;
-
-  let active = "";
-  for (let i = 0; i < lyrics.length; i++) {
-    if (current >= lyrics[i].time) {
-      active = lyrics[i].text;
-    }
-  }
-
-  lyricsBox.textContent = active;
+    // Add a subtle effect based on scroll position
+    const opacity = Math.max(0.5, 1 - Math.abs(distance) / windowHeight);
+    scene.style.opacity = opacity;
+  });
 });
