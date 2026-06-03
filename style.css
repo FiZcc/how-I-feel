@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
 }
 
 body {
@@ -10,18 +10,30 @@ body {
   overflow-x: hidden;
 }
 
-
 .music-box {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  background: rgba(255,255,255,0.7);
-  padding: 10px;
-  border-radius: 10px;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 20px;
   backdrop-filter: blur(8px);
   z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 3px solid #d6ffd6;
 }
 
+.music-box p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2f6f3e;
+  margin-bottom: 10px;
+}
+
+.music-box audio {
+  width: 250px;
+  outline: none;
+}
 
 .world {
   height: 500vh;
@@ -35,55 +47,138 @@ body {
   align-items: center;
   transition: all 1s ease;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-
+/* Bloom sections - pure, innocent, colorful */
 .bloom {
-  background: linear-gradient(#d6ffd6, #ffffff);
+  background: linear-gradient(135deg, #d6ffd6 0%, #fffacd 50%, #ffffff 100%);
   color: #2f6f3e;
 }
 
+.bloom::before {
+  content: "🌼 🌸 🌺 🌷 🌹";
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  letter-spacing: 20px;
+}
+
 .bloom2 {
-  background: linear-gradient(#e6ffe6, #fafff5);
+  background: linear-gradient(135deg, #e6ffe6 0%, #fff9e6 50%, #fafff5 100%);
   color: #3c7a4a;
 }
 
+.bloom2::before {
+  content: "✨ 🌈 ✨ 🌈 ✨";
+  position: absolute;
+  font-size: 3.5rem;
+  opacity: 0.2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  letter-spacing: 15px;
+}
 
+/* Transition - something shifts */
 .transition {
-  background: linear-gradient(#f7fff7, #ffeaea);
+  background: linear-gradient(135deg, #f7fff7 0%, #ffeaea 50%, #ffcccc 100%);
   color: #7a5a5a;
 }
 
+.transition::before {
+  content: "⚠️ ⚠️ ⚠️";
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.15;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  letter-spacing: 15px;
+  animation: flicker 2s infinite;
+}
 
+/* Decay - corrupted, dark, red splodges */
 .decay {
-  background: linear-gradient(#ffd6d6, #2b2b2b);
+  background: linear-gradient(135deg, #ffd6d6 0%, #ff9999 50%, #660000 100%);
   color: #ff4d4d;
   position: relative;
 }
 
 .decay::before {
+  content: "💧 💧 💧";
+  position: absolute;
+  font-size: 5rem;
+  opacity: 0.4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  letter-spacing: 25px;
+  animation: drip 3s ease-in-out infinite;
+}
+
+.decay::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("https://i.imgur.com/3ZQ3ZQm.png"); 
-  opacity: 0.2;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.2) 0%, transparent 50%);
+  z-index: 1;
   mix-blend-mode: multiply;
 }
 
+/* Final ruin - complete darkness */
 .decay2 {
-  background: linear-gradient(#1a1a1a, #000000);
+  background: linear-gradient(135deg, #1a1a1a 0%, #330000 50%, #000000 100%);
   color: #b30000;
 }
 
+.decay2::before {
+  content: "✕ ✕ ✕ ✕ ✕";
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  letter-spacing: 20px;
+}
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 10;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 p {
-  font-size: 1.2rem;
-  opacity: 0.8;
+  font-size: 1.4rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes drip {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(20px); }
 }
