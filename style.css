@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #f7ffe8, #dff7ff);
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#garden {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+#lyrics {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: rgba(80, 120, 90, 0.8);
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  transition: opacity 0.5s ease;
+}
+
+/* floating butterflies */
+.butterfly {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url("butterfly.png");
+  background-size: cover;
+  animation: float 12s infinite linear;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
