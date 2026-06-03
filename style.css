@@ -1,39 +1,89 @@
-body {
+* {
   margin: 0;
-  background: radial-gradient(circle at top, #f7ffe8, #dff7ff);
-  overflow: hidden;
-  font-family: sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-#garden {
-  width: 100vw;
+body {
+  background: #f7fff7;
+  overflow-x: hidden;
+}
+
+
+.music-box {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.7);
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+
+.world {
+  height: 500vh;
+}
+
+.scene {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+  text-align: center;
+}
+
+
+.bloom {
+  background: linear-gradient(#d6ffd6, #ffffff);
+  color: #2f6f3e;
+}
+
+.bloom2 {
+  background: linear-gradient(#e6ffe6, #fafff5);
+  color: #3c7a4a;
+}
+
+
+.transition {
+  background: linear-gradient(#f7fff7, #ffeaea);
+  color: #7a5a5a;
+}
+
+
+.decay {
+  background: linear-gradient(#ffd6d6, #2b2b2b);
+  color: #ff4d4d;
   position: relative;
 }
 
-#lyrics {
+.decay::before {
+  content: "";
   position: absolute;
-  bottom: 15%;
   width: 100%;
-  text-align: center;
-  font-size: 28px;
-  color: rgba(80, 120, 90, 0.8);
-  text-shadow: 0 0 10px rgba(255,255,255,0.6);
-  transition: opacity 0.5s ease;
+  height: 100%;
+  background: url("https://i.imgur.com/3ZQ3ZQm.png"); 
+  opacity: 0.2;
+  mix-blend-mode: multiply;
 }
 
-/* floating butterflies */
-.butterfly {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: url("butterfly.png");
-  background-size: cover;
-  animation: float 12s infinite linear;
+.decay2 {
+  background: linear-gradient(#1a1a1a, #000000);
+  color: #b30000;
 }
 
-@keyframes float {
-  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 1.2rem;
+  opacity: 0.8;
 }
